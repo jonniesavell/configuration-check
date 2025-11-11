@@ -31,10 +31,10 @@ class FileSystemObjectProcessor:
 
                 try:
                     expected_mode_int = int(expected_mode, 8)
-
-                    if not actual_mode == expected_mode_int:
-                        raise ValueError(f'{name}: modes differ: {oct(expected_mode_int)} != {oct(actual_mode)}')
                 except Exception as e:
                     raise ValueError(f'error occurred while converting {expected_mode} to octal: {str(e)}')
+                else:
+                    if not actual_mode == expected_mode_int:
+                        raise ValueError(f'{name}: modes differ: {oct(expected_mode_int)} != {oct(actual_mode)}')
 
         return None
