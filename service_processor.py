@@ -2,7 +2,7 @@ import subprocess
 
 
 class SystemDServiceProcessor:
-    def process(self, dictionary):
+    def process(self, dictionary: dict):
         name = dictionary['name']
         attributes = dictionary['attributes']
 
