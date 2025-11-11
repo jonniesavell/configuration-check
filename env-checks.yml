@@ -1,22 +1,28 @@
 checks:
-  - name: "Config directory"
+  - name: "ingestor app directory"
     type: directory
     attributes:
-        path: /etc/myapp/config.d
-        owner: myappuser
-        mode: "0755"
+        path: /opt/ingestor
+        owner: ingestor
+        mode: "777"
+  - name: "csv_publisher app directory"
+    type: directory
+    attributes:
+        path: /opt/csv_publisher
+        owner: csv_publisher
+        mode: "755"
   - name: "Log directory"
     type: directory
     attributes:
-        path: /var/log/myapp
+        path: /var/log/csv_publisher
   - name: "Service binary"
-    type: file
+    type: directory
     attributes:
-        path: /usr/local/bin/myapp
-        owner: root
+        path: /opt/app
+        owner: app
         mode: "0755"
   - name: "Service enabled"
     type: service
     attributes:
-        service: myapp.service
+        service: ingestor.service
         state: enabled
