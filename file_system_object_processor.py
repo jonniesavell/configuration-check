@@ -34,7 +34,7 @@ class FileSystemObjectProcessor:
 
                     if not actual_mode == expected_mode_int:
                         raise ValueError(f'{name}: modes differ: {oct(expected_mode)} != {oct(actual_mode)}')
-                except Exception:
-                    raise ValueError(f'error occurred while converting {expected_mode} to octal')
+                except Exception as e:
+                    raise ValueError(f'error occurred while converting {expected_mode} to octal: {str(e)}')
 
         return None
