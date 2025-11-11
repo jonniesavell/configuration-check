@@ -1,0 +1,22 @@
+checks:
+  - name: "Config directory"
+    type: directory
+    attributes:
+        path: /etc/myapp/config.d
+        owner: myappuser
+        mode: "0755"
+  - name: "Log directory"
+    type: directory
+    attributes:
+        path: /var/log/myapp
+  - name: "Service binary"
+    type: file
+    attributes:
+        path: /usr/local/bin/myapp
+        owner: root
+        mode: "0755"
+  - name: "Service enabled"
+    type: service
+    attributes:
+        service: myapp.service
+        state: enabled
